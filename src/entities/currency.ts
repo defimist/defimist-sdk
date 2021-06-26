@@ -20,7 +20,7 @@ export class Currency {
   // Native currencies for deployment chains
   public static readonly ETHER: Currency = new Currency(18, 'ETH', 'Ether')
   public static readonly SPOA: Currency = new Currency(18, 'SPOA', 'Sokol POA')
-  public static readonly DM: Currency = new Currency(18, 'DM', 'DM')
+  public static readonly DM: Currency = new Currency(18, 'DM', 'Defimist')
 
   private static readonly NATIVE_CURRENCY: { [chainId in ChainId]: Currency } = {
     [ChainId.MAINNET]: Currency.ETHER,
