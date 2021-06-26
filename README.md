@@ -7,7 +7,7 @@ To run the tests, follow these steps. You must have at least node v10 and [yarn]
 First clone the repository:
 
 ```sh
-git clone https://github.com/levelkdev/defimist-sdk.git
+git clone https://github.com/defimist/defimist-sdk.git
 ```
 
 Move into the defimist-sdk working directory
