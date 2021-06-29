@@ -65,7 +65,7 @@ export const STAKING_REWARDS_FACTORY_ADDRESS: { [chainId: number]: string } = {
   [ChainId.DM]: '0xCD2A45F36464FdB1065160e03A2353996Ea8Ff57'
 }
 
-export const DMFWAP_TOKEN_LIST_ID: { [chainId: number]: number } = {
+export const DMSWAP_TOKEN_LIST_ID: { [chainId: number]: number } = {
   [ChainId.MAINNET]: 1,
   [ChainId.RINKEBY]: 1,
   [ChainId.ARBITRUM_TESTNET_V3]: 1,
