@@ -25,7 +25,7 @@ export enum ChainId {
   RINKEBY = 4,
   ARBITRUM_TESTNET_V3 = 79377087078960,
   SOKOL = 77,
-  DM = 100
+  DM = 512
 }
 
 export enum TradeType {
