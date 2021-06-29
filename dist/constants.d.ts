@@ -29,7 +29,7 @@ export declare const ROUTER_ADDRESS: {
 export declare const STAKING_REWARDS_FACTORY_ADDRESS: {
     [chainId: number]: string;
 };
-export declare const DMSWAP_TOKEN_LIST_ID: {
+export declare const DMFWAP_TOKEN_LIST_ID: {
     [chainId: number]: number;
 };
 export declare const INIT_CODE_HASH = "0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776";

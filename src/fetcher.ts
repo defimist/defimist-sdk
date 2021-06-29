@@ -51,8 +51,8 @@ export abstract class Fetcher {
       tokenAmounts[0].token.chainId,
       Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform),
       18,
-      'DMS',
-      'Defimist Swap'
+      'DMF',
+      'Defimist Fund'
     )
     const swapFee = JSBI.BigInt(await new Contract(liquidityToken.address, IDefimistPair.abi, provider).swapFee())
     const protocolFeeDenominator = JSBI.BigInt(
@@ -194,7 +194,7 @@ export abstract class Fetcher {
         factoryContract.interface.getFunction('allPairs(uint256)'),
         result.returnData[resultIndex]
       )[0]
-      tokenPairsToFetch.push(new Token(chainId, tokenPairAddress, 18, 'DMS', 'Defimist Swap'))
+      tokenPairsToFetch.push(new Token(chainId, tokenPairAddress, 18, 'DMF', 'Defimist Fund'))
     }
 
     // Fetch the pairs that we dont have the fee and owner

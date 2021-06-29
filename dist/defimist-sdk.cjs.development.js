@@ -1049,7 +1049,7 @@ var stakingRewardsDistribution = [
 	}
 ];
 
-var _FACTORY_ADDRESS, _ROUTER_ADDRESS, _STAKING_REWARDS_FACT, _DMSWAP_TOKEN_LIST_ID, _SOLIDITY_TYPE_MAXIMA, _PERMISSIVE_MULTICALL;
+var _FACTORY_ADDRESS, _ROUTER_ADDRESS, _STAKING_REWARDS_FACT, _DMFWAP_TOKEN_LIST_ID, _SOLIDITY_TYPE_MAXIMA, _PERMISSIVE_MULTICALL;
 
 (function (ChainId) {
   ChainId[ChainId["MAINNET"] = 1] = "MAINNET";
@@ -1074,7 +1074,7 @@ var ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[exports.ChainId.MAINNET] = _contracts_json.mainnet.factory, _FACTORY_ADDRESS[exports.ChainId.RINKEBY] = _contracts_json.rinkeby.factory, _FACTORY_ADDRESS[exports.ChainId.ARBITRUM_TESTNET_V3] = _contracts_json.arbitrumTestnetV3.factory, _FACTORY_ADDRESS[exports.ChainId.SOKOL] = _contracts_json.sokol.factory, _FACTORY_ADDRESS[exports.ChainId.DM] = _contracts_json.dm.factory, _FACTORY_ADDRESS);
 var ROUTER_ADDRESS = (_ROUTER_ADDRESS = {}, _ROUTER_ADDRESS[exports.ChainId.RINKEBY] = _contracts_json$1.rinkeby.router, _ROUTER_ADDRESS[exports.ChainId.MAINNET] = _contracts_json$1.mainnet.router, _ROUTER_ADDRESS[exports.ChainId.ARBITRUM_TESTNET_V3] = _contracts_json$1.arbitrumTestnetV3.router, _ROUTER_ADDRESS[exports.ChainId.SOKOL] = _contracts_json$1.sokol.router, _ROUTER_ADDRESS[exports.ChainId.DM] = _contracts_json$1.dm.router, _ROUTER_ADDRESS);
 var STAKING_REWARDS_FACTORY_ADDRESS = (_STAKING_REWARDS_FACT = {}, _STAKING_REWARDS_FACT[exports.ChainId.MAINNET] = '0x0000000000000000000000000000000000001234', _STAKING_REWARDS_FACT[exports.ChainId.RINKEBY] = '0x163a3640Ce993A0b4c11885a6D4dAc16DFC188e1', _STAKING_REWARDS_FACT[exports.ChainId.ARBITRUM_TESTNET_V3] = '0xB95Ad562EDE8DD78BBFC287fA18150e802b09D9F', _STAKING_REWARDS_FACT[exports.ChainId.SOKOL] = '0xD436e756Cf41318ADeC62E8dCbEF2608753Ae068', _STAKING_REWARDS_FACT[exports.ChainId.DM] = '0xCD2A45F36464FdB1065160e03A2353996Ea8Ff57', _STAKING_REWARDS_FACT);
-var DMSWAP_TOKEN_LIST_ID = (_DMSWAP_TOKEN_LIST_ID = {}, _DMSWAP_TOKEN_LIST_ID[exports.ChainId.MAINNET] = 1, _DMSWAP_TOKEN_LIST_ID[exports.ChainId.RINKEBY] = 1, _DMSWAP_TOKEN_LIST_ID[exports.ChainId.ARBITRUM_TESTNET_V3] = 1, _DMSWAP_TOKEN_LIST_ID[exports.ChainId.SOKOL] = 1, _DMSWAP_TOKEN_LIST_ID[exports.ChainId.DM] = 5, _DMSWAP_TOKEN_LIST_ID);
+var DMFWAP_TOKEN_LIST_ID = (_DMFWAP_TOKEN_LIST_ID = {}, _DMFWAP_TOKEN_LIST_ID[exports.ChainId.MAINNET] = 1, _DMFWAP_TOKEN_LIST_ID[exports.ChainId.RINKEBY] = 1, _DMFWAP_TOKEN_LIST_ID[exports.ChainId.ARBITRUM_TESTNET_V3] = 1, _DMFWAP_TOKEN_LIST_ID[exports.ChainId.SOKOL] = 1, _DMFWAP_TOKEN_LIST_ID[exports.ChainId.DM] = 5, _DMFWAP_TOKEN_LIST_ID);
 var INIT_CODE_HASH = '0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776';
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -1899,7 +1899,7 @@ var Pair = /*#__PURE__*/function () {
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
     this.platform = platform ? platform : RoutablePlatform.DEFIMIST;
     var liquidityTokenAddress = Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform);
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DMS', 'Defimist Swap');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DMF', 'Defimist Fund');
     this.protocolFeeDenominator = protocolFeeDenominator ? protocolFeeDenominator : defaultProtocolFeeDenominator;
     this.tokenAmounts = tokenAmounts;
     this.swapFee = swapFee ? swapFee : platform.defaultSwapFee;
@@ -2776,7 +2776,7 @@ var Fetcher = /*#__PURE__*/function () {
         var tokenAmountB = new TokenAmount(tokenB, balances[1]);
         var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
         ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-        var liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform), 18, 'DMS', 'Defimist Swap');
+        var liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform), 18, 'DMF', 'Defimist Fund');
         var _BigInt = JSBI.BigInt;
         return Promise.resolve(new contracts.Contract(liquidityToken.address, IDefimistPair.abi, provider).swapFee()).then(function (_Contract$swapFee) {
           var swapFee = _BigInt.call(JSBI, _Contract$swapFee);
@@ -2910,7 +2910,7 @@ var Fetcher = /*#__PURE__*/function () {
         }))).then(function (result) {
           for (var resultIndex = 0; resultIndex < result.returnData.length; resultIndex++) {
             var tokenPairAddress = factoryContract["interface"].decodeFunctionResult(factoryContract["interface"].getFunction('allPairs(uint256)'), result.returnData[resultIndex])[0];
-            tokenPairsToFetch.push(new Token(chainId, tokenPairAddress, 18, 'DMS', 'Defimist Swap'));
+            tokenPairsToFetch.push(new Token(chainId, tokenPairAddress, 18, 'DMF', 'Defimist Fund'));
           } // Fetch the pairs that we dont have the fee and owner
 
 
@@ -2960,7 +2960,7 @@ exports.Currency = Currency;
 exports.CurrencyAmount = CurrencyAmount;
 exports.DM = DM;
 exports.DMC = DMC;
-exports.DMSWAP_TOKEN_LIST_ID = DMSWAP_TOKEN_LIST_ID;
+exports.DMFWAP_TOKEN_LIST_ID = DMFWAP_TOKEN_LIST_ID;
 exports.ETHER = ETHER;
 exports.FACTORY_ADDRESS = FACTORY_ADDRESS;
 exports.FIVE = FIVE;

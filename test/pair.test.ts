@@ -54,8 +54,8 @@ describe('Pair', () => {
       expect(pairData.liquidityToken.address).toEqual(pairAddress)
       expect(pairData.liquidityToken.chainId).toEqual(ChainId.RINKEBY)
       expect(pairData.liquidityToken.decimals).toEqual(18)
-      expect(pairData.liquidityToken.symbol).toEqual('DMS')
-      expect(pairData.liquidityToken.name).toEqual('Defimist Swap')
+      expect(pairData.liquidityToken.symbol).toEqual('DMF')
+      expect(pairData.liquidityToken.name).toEqual('Defimist Fund')
     })
   })
 

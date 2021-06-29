@@ -116,7 +116,7 @@ export class Pair {
 
     this.platform = platform ? platform : RoutablePlatform.DEFIMIST
     const liquidityTokenAddress = Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token, platform)
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DMS', 'Defimist Swap')
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, liquidityTokenAddress, 18, 'DMF', 'Defimist Fund')
     this.protocolFeeDenominator = protocolFeeDenominator ? protocolFeeDenominator : defaultProtocolFeeDenominator
     this.tokenAmounts = tokenAmounts as [TokenAmount, TokenAmount]
     this.swapFee = swapFee ? swapFee : platform.defaultSwapFee
