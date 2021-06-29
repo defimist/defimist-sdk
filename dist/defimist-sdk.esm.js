@@ -1044,7 +1044,7 @@ var stakingRewardsDistribution = [
 	}
 ];
 
-var _FACTORY_ADDRESS, _ROUTER_ADDRESS, _STAKING_REWARDS_FACT, _DMFWAP_TOKEN_LIST_ID, _SOLIDITY_TYPE_MAXIMA, _PERMISSIVE_MULTICALL;
+var _FACTORY_ADDRESS, _ROUTER_ADDRESS, _STAKING_REWARDS_FACT, _DMSWAP_TOKEN_LIST_ID, _SOLIDITY_TYPE_MAXIMA, _PERMISSIVE_MULTICALL;
 var ChainId;
 
 (function (ChainId) {
@@ -1052,7 +1052,7 @@ var ChainId;
   ChainId[ChainId["RINKEBY"] = 4] = "RINKEBY";
   ChainId[ChainId["ARBITRUM_TESTNET_V3"] = 79377087078960] = "ARBITRUM_TESTNET_V3";
   ChainId[ChainId["SOKOL"] = 77] = "SOKOL";
-  ChainId[ChainId["DM"] = 100] = "DM";
+  ChainId[ChainId["DM"] = 512] = "DM";
 })(ChainId || (ChainId = {}));
 
 var TradeType;
@@ -1074,7 +1074,7 @@ var ZERO_ADDRESS = '0x0000000000000000000000000000000000000000';
 var FACTORY_ADDRESS = (_FACTORY_ADDRESS = {}, _FACTORY_ADDRESS[ChainId.MAINNET] = mainnet.factory, _FACTORY_ADDRESS[ChainId.RINKEBY] = rinkeby.factory, _FACTORY_ADDRESS[ChainId.ARBITRUM_TESTNET_V3] = arbitrumTestnetV3.factory, _FACTORY_ADDRESS[ChainId.SOKOL] = sokol.factory, _FACTORY_ADDRESS[ChainId.DM] = dm.factory, _FACTORY_ADDRESS);
 var ROUTER_ADDRESS = (_ROUTER_ADDRESS = {}, _ROUTER_ADDRESS[ChainId.RINKEBY] = rinkeby$1.router, _ROUTER_ADDRESS[ChainId.MAINNET] = mainnet$1.router, _ROUTER_ADDRESS[ChainId.ARBITRUM_TESTNET_V3] = arbitrumTestnetV3$1.router, _ROUTER_ADDRESS[ChainId.SOKOL] = sokol$1.router, _ROUTER_ADDRESS[ChainId.DM] = dm$1.router, _ROUTER_ADDRESS);
 var STAKING_REWARDS_FACTORY_ADDRESS = (_STAKING_REWARDS_FACT = {}, _STAKING_REWARDS_FACT[ChainId.MAINNET] = '0x0000000000000000000000000000000000001234', _STAKING_REWARDS_FACT[ChainId.RINKEBY] = '0x163a3640Ce993A0b4c11885a6D4dAc16DFC188e1', _STAKING_REWARDS_FACT[ChainId.ARBITRUM_TESTNET_V3] = '0xB95Ad562EDE8DD78BBFC287fA18150e802b09D9F', _STAKING_REWARDS_FACT[ChainId.SOKOL] = '0xD436e756Cf41318ADeC62E8dCbEF2608753Ae068', _STAKING_REWARDS_FACT[ChainId.DM] = '0xCD2A45F36464FdB1065160e03A2353996Ea8Ff57', _STAKING_REWARDS_FACT);
-var DMFWAP_TOKEN_LIST_ID = (_DMFWAP_TOKEN_LIST_ID = {}, _DMFWAP_TOKEN_LIST_ID[ChainId.MAINNET] = 1, _DMFWAP_TOKEN_LIST_ID[ChainId.RINKEBY] = 1, _DMFWAP_TOKEN_LIST_ID[ChainId.ARBITRUM_TESTNET_V3] = 1, _DMFWAP_TOKEN_LIST_ID[ChainId.SOKOL] = 1, _DMFWAP_TOKEN_LIST_ID[ChainId.DM] = 5, _DMFWAP_TOKEN_LIST_ID);
+var DMSWAP_TOKEN_LIST_ID = (_DMSWAP_TOKEN_LIST_ID = {}, _DMSWAP_TOKEN_LIST_ID[ChainId.MAINNET] = 1, _DMSWAP_TOKEN_LIST_ID[ChainId.RINKEBY] = 1, _DMSWAP_TOKEN_LIST_ID[ChainId.ARBITRUM_TESTNET_V3] = 1, _DMSWAP_TOKEN_LIST_ID[ChainId.SOKOL] = 1, _DMSWAP_TOKEN_LIST_ID[ChainId.DM] = 5, _DMSWAP_TOKEN_LIST_ID);
 var INIT_CODE_HASH = '0xd306a548755b9295ee49cc729e13ca4a45e00199bbd890fa146da43a50571776';
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
@@ -2956,5 +2956,5 @@ var Fetcher = /*#__PURE__*/function () {
   return Fetcher;
 }();
 
-export { ChainId, Currency, CurrencyAmount, DM, DMC, DMFWAP_TOKEN_LIST_ID, ETHER, FACTORY_ADDRESS, FIVE, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, LiquidityMiningCampaign, MINIMUM_LIQUIDITY, ONE, PERMISSIVE_MULTICALL_ABI, PERMISSIVE_MULTICALL_ADDRESS, Pair, Percent, Price, PricedToken, PricedTokenAmount, ROUTER_ADDRESS, Rounding, RoutablePlatform, Route, Router, SECONDS_IN_YEAR, SOLIDITY_TYPE_MAXIMA, SPOA, stakingRewardsDistribution as STAKING_REWARDS_DISTRIBUTION_ABI, stakingRewardsDistributionFactory as STAKING_REWARDS_FACTORY_ABI, STAKING_REWARDS_FACTORY_ADDRESS, SolidityType, TEN, THREE, TWO, Token, TokenAmount, Trade, TradeType, USD, WDM, WETH, WSPOA, ZERO, ZERO_ADDRESS, _100, _1000, _10000, _25, _30, currencyEquals, defaultProtocolFeeDenominator, defaultSwapFee, inputOutputComparator, parseBigintIsh, tradeComparator };
+export { ChainId, Currency, CurrencyAmount, DM, DMC, DMSWAP_TOKEN_LIST_ID, ETHER, FACTORY_ADDRESS, FIVE, Fetcher, Fraction, INIT_CODE_HASH, InsufficientInputAmountError, InsufficientReservesError, LiquidityMiningCampaign, MINIMUM_LIQUIDITY, ONE, PERMISSIVE_MULTICALL_ABI, PERMISSIVE_MULTICALL_ADDRESS, Pair, Percent, Price, PricedToken, PricedTokenAmount, ROUTER_ADDRESS, Rounding, RoutablePlatform, Route, Router, SECONDS_IN_YEAR, SOLIDITY_TYPE_MAXIMA, SPOA, stakingRewardsDistribution as STAKING_REWARDS_DISTRIBUTION_ABI, stakingRewardsDistributionFactory as STAKING_REWARDS_FACTORY_ABI, STAKING_REWARDS_FACTORY_ADDRESS, SolidityType, TEN, THREE, TWO, Token, TokenAmount, Trade, TradeType, USD, WDM, WETH, WSPOA, ZERO, ZERO_ADDRESS, _100, _1000, _10000, _25, _30, currencyEquals, defaultProtocolFeeDenominator, defaultSwapFee, inputOutputComparator, parseBigintIsh, tradeComparator };
 //# sourceMappingURL=defimist-sdk.esm.js.map
